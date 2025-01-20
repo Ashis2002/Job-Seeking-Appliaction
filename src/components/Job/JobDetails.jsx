@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../main";
 
-
 const JobDetails = () => {
   const { id } = useParams();
   const [job, setJob] = useState({});
@@ -14,7 +13,7 @@ const JobDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/job/${id}`, {
+      .get(`${import.meta.env.VITE_API_URL}/api/v1/job/${id}`, {
         withCredentials: true,
       })
       .then((res) => {
